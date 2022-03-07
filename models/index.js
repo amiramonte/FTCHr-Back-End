@@ -15,9 +15,13 @@ User.hasMany(Post);
 
 Post.belongsTo(User);
 
-// User.hasMany(Comment, {});
+Post.hasMany(Comment);
 
-// Comment.belongsTo(User);
+Comment.belongsTo(Post);
+
+User.hasMany(Comment);
+
+Comment.belongsTo(User);
 
 // Exporting Models
 module.exports = {
