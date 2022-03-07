@@ -10,7 +10,6 @@ const {
 } = require("../models");
 
 // User Seed Data
-// TODO: add needed association seed data after table associations successfully built
 const users = [
   {
     user_name: "amiramonte",
@@ -35,7 +34,6 @@ const users = [
 ];
 
 // Pet seed data
-// TODO: add needed association seed data after table associations successfully built
 const pets = [
   {
     pet_name: "Odesza",
@@ -76,7 +74,6 @@ const pets = [
 ];
 
 // Post seed data
-// TODO: add needed association seed data after table associations successfully built
 const posts = [
   {
     post_title: "Playdate with Odesza",
@@ -102,14 +99,37 @@ const posts = [
   },
 ];
 
+const comments = [
+  {
+    comment_body: "I'd like Takara to be there!",
+    PostId: 1,
+    UserId: 1,
+  },
+  {
+    comment_body: "See you!!",
+    PostId: 3,
+    UserId: 2,
+  },
+  {
+    comment_body: "I'd like Alex to be there!",
+    PostId: 1,
+    UserId: 3,
+  },
+  {
+    comment_body: "I'd like Becca to be there!",
+    PostId: 2,
+    UserId: 4,
+  },
+];
+
 const seed = async () => {
   await sequelize.sync({ force: true });
   await User.bulkCreate(users, { individualHooks: true });
   await Pet.bulkCreate(pets);
   await Post.bulkCreate(posts);
+  await Comment.bulkCreate(comments);
   console.log("Seeding Successful!");
   process.exit(0);
 };
 
-// TODO: CALL SEED FUNCTION DOWN HERE
 seed();
