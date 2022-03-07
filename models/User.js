@@ -40,7 +40,13 @@ User.init({
     },
     user_phonenumber: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        unique: true,
+        unique: {
+          args: true,
+          msg: "Phone Number already in use",
+        },
+  
     },
     user_photo: {
         type: DataTypes.STRING,
