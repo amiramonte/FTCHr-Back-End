@@ -19,5 +19,78 @@ router.get('/getallposts', async(req, res) => {
 })
 
 
+// GET route for single post & associated User and Comment data
+router.get('/getsinglepost/:id', async(req, res) => {
+    try {
+        const singlePost = await Post.findByPk(req.params.id, {
+            include: [User, Comment]
+        })
+
+        res.status(200).json(singlePost);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
+})
+
+
+
+// Add new Post route
+// TODO: Add withAuth from utils folder, once created
+router.post('/addpost', async (req, res) => {
+    try {
+        const newPost = await Post.create(req.body)
+
+        res.status(200).json(newPost);
+
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
+})
+
+
+
+
+// Update single post route
+// TODO: Add withAuth from utils folder, once created
+router.put('/updatepost/:id', async(req, res) => {
+    try {
+        const updatePost = await Post.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        })
+
+        return res.status(200).json(updatePost);
+
+    } catch (error) {
+        console.log(error)
+        return res.status(400).json(error)
+    }
+})
+
+
+
+
+// Delete single post route
+// TODO: Add withAuth from utils folder, once created
+router.delete('/deletepost/:id',  async(req, res) => {
+    try {
+        const deletePost = await Post.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+
+        return res.status(200).json(deletePost);
+
+    } catch (error) {
+        return res.status(400).json(error)
+    }
+})
+
+
 
 module.exports = router;
