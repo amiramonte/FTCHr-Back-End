@@ -20,6 +20,25 @@ router.get('/getallusers', async(req, res) => {
 })
 
 
+// GET route for single user and associated pets, posts, and comments
+router.get('/getsingleuser/:id', async(req, res) => {
+    try {
+        const singleUser = await User.findByPk(req.params.id, {
+            include: [Pet, Post, Comment]
+        })
+
+        res.status(200).json(singleUser);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
+})
+
+
+
+
+
 // SIGN IN route for user
 router.post('/sign-in', async(req, res) => {
     try {
@@ -58,6 +77,27 @@ router.post('/sign-out', async(req,res) => {
     try {
         req.session.destroy();
         return res.status(200).json({message: "You have successfully signed out!"});
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
+})
+
+
+// SIGN UP route for new user
+router.post('/sign-up', async (req, res) => {
+    try {
+        const newUser = await User.create(req.body)
+
+        req.session.save(() => {
+            req.session.userId = newUser.id;
+            req.session.username = newUser.user_name;
+            req.session.loggedIn = true;
+
+            res.status(200).json(newUser);
+        })
+
+
     } catch (error) {
         console.log(error);
         res.status(400).json(error);
