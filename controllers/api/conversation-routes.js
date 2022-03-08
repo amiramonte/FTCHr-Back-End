@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Conversations } = require('../../models');
+const { Conversation } = require('../../models');
 const {Op} = require('@sequelize/core')
 
 router.post('/', async (req, res) => {
@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
 router.get('/:userId', async ( req, res) => {
     console.log("getting user conversatiojns")
     try {
-        const convo = await Conversations.findAll({
+        const convo = await Conversation.findAll({
             where: {
                 [Op.or]: [
                     {senderId: req.params.userId},

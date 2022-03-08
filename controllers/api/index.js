@@ -4,8 +4,8 @@ const router = require("express").Router();
 const conversationRoutes = require('./conversation-routes')
 const messageRoutes = require('./message-routes')
 
-router.use('/conversation', conversationRoutes);
-router.use('/message', messageRoutes);
+router.use('/conversations', conversationRoutes);
+router.use('/messages', messageRoutes);
 // Defining Variables for routes
 const userRoutes = require("./user-routes");
 const petRoutes = require("./pet-routes");
