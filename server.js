@@ -8,7 +8,6 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(controllers);
 
 const sess = {
   secret: process.env.SESSION_SECRET,
@@ -26,6 +25,8 @@ app.use(session(sess));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use(controllers);
 
 app.listen(PORT, () => {
   sequelize.sync({ force: false });
