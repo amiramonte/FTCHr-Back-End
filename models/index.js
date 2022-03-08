@@ -3,7 +3,7 @@ const User = require('./User');
 const Pet = require('./Pet');
 const Post = require('./Post');
 const Comment = require('./Comment');
-const Conversation = require('./Conversation');
+const Conversations = require('./Conversation');
 const Message = require('./Message');
 
 // Table Associations
@@ -16,6 +16,6 @@ module.exports = {
     Pet,
     Post,
     Comment,
-    Conversation,
+    Conversations,
     Message
 };
