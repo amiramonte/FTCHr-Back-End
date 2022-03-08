@@ -1,15 +1,15 @@
 const { Model, DataTypes } = require("sequelize");
-const bcrypt = require("bcrypt");
 const sequelize = require("../config/configuration");
+const bcrypt = require("bcrypt");
 
 class User extends Model {
   checkPassword(loginPassword) {
-    return bcrypt.compareSync(loginPassword, this.password);
+    return bcrypt.compareSync(loginPassword, this.user_password);
   }
 }
 
-User.init({
-
+User.init(
+  {
     user_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -38,29 +38,21 @@ User.init({
         len: 8,
       },
     },
-    user_phonenumber: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        unique: true,
-        unique: {
-          args: true,
-          msg: "Phone Number already in use",
-        },
-  
-    },
     user_photo: {
-        type: DataTypes.STRING,
+      type: DataTypes.STRING,
     },
     user_location: {
-        type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER,
     },
-
   },
   {
     sequelize,
     hooks: {
       beforeCreate: async (newUserData) => {
-        newUserData.password = await bcrypt.hash(newUserData.password, 3);
+        newUserData.user_password = await bcrypt.hash(
+          newUserData.user_password,
+          3
+        );
         return newUserData;
       },
     },

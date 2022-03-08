@@ -8,6 +8,7 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
 const sess = {
   secret: process.env.SESSION_SECRET,
   cookie: {
@@ -28,8 +29,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(controllers);
 
 app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}!`);
   sequelize.sync({ force: false });
+  console.log(`App listening on port ${PORT}!`);
 });
 
 // socket.io portion
