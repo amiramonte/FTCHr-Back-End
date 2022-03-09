@@ -38,7 +38,6 @@ router.get('/getsinglepet/:id', async(req, res) => {
 
 
 // Add pet route
-// TODO: Add withAuth from utils folder, once created
 router.post('/addpet', async (req, res) => {
     try {
         const newPet = await Pet.create(req.body)
@@ -54,7 +53,6 @@ router.post('/addpet', async (req, res) => {
 
 
 // Update pet route
-// TODO: Add withAuth from utils folder, once created
 router.put('/updatepet/:id', async(req, res) => {
     try {
         const updatePet = await Pet.update(req.body, {
@@ -75,7 +73,6 @@ router.put('/updatepet/:id', async(req, res) => {
 
 
 // Delete pet route
-// TODO: Add withAuth from utils folder, once created
 router.delete('/deletepet/:id',  async(req, res) => {
     try {
         const deletePet = await Pet.destroy({
