@@ -37,7 +37,6 @@ router.get('/getsinglepost/:id', async(req, res) => {
 
 
 // Add new Post route
-// TODO: Add withAuth from utils folder, once created
 router.post('/addpost', async (req, res) => {
     try {
         const newPost = await Post.create(req.body)
@@ -54,7 +53,6 @@ router.post('/addpost', async (req, res) => {
 
 
 // Update single post route
-// TODO: Add withAuth from utils folder, once created
 router.put('/updatepost/:id', async(req, res) => {
     try {
         const updatePost = await Post.update(req.body, {
@@ -75,7 +73,6 @@ router.put('/updatepost/:id', async(req, res) => {
 
 
 // Delete single post route
-// TODO: Add withAuth from utils folder, once created
 router.delete('/deletepost/:id',  async(req, res) => {
     try {
         const deletePost = await Post.destroy({

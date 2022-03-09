@@ -38,7 +38,6 @@ router.get('/getsinglecomment/:id', async(req, res) => {
 
 
 // Add new Comment route
-// TODO: Add withAuth from utils folder, once created
 router.post('/addcomment', async (req, res) => {
     try {
         const newComment = await Comment.create(req.body)
@@ -55,7 +54,6 @@ router.post('/addcomment', async (req, res) => {
 
 
 // Update single comment route
-// TODO: Add withAuth from utils folder, once created
 router.put('/updatecomment/:id', async(req, res) => {
     try {
         const updateComment = await Comment.update(req.body, {
@@ -76,7 +74,6 @@ router.put('/updatecomment/:id', async(req, res) => {
 
 
 // Delete single comment route
-// TODO: Add withAuth from utils folder, once created
 router.delete('/deletecomment/:id',  async(req, res) => {
     try {
         const deleteComment = await Comment.destroy({

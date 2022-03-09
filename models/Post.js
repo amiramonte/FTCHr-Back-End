@@ -13,7 +13,9 @@ Post.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-
+    post_location: {
+        type: DataTypes.INTEGER,
+    },  
 },{
     sequelize,
 });
