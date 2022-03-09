@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 const {User, Pet, Post, Comment, Conversation, Message} = require("../../models");
 
 
@@ -70,13 +72,17 @@ router.post('/sign-in', async(req, res) => {
             return res.status(400).json({message: "Invalid username/password. Please try again."});
         }
 
-        req.session.save(() => {
-            req.session.userId = currentUser.id;
-            req.session.username = currentUser.user_name;
-            req.session.loggedIn = true;
+        const userToken = jwt.sign(
+            {
+                id: currentUser.id,
+                user_name: currentUser.user_name,
+            },
+            process.env.JWT_SECRET,
+            {
+                expiresIn: "2h"
+            })
 
-            return res.status(200).json({ currentUser, message: "you are now logged in!" });
-        })
+        return res.status(200).json({ currentUser, userToken, message: "you are now logged in!" });
 
 
     } catch (error) {
@@ -87,9 +93,10 @@ router.post('/sign-in', async(req, res) => {
 
 
 // SIGN OUT route for user
+// TODO: SET UP SIGN OUT TO REMOVE TOKEN INFORMATION
 router.post('/sign-out', async(req,res) => {
     try {
-        req.session.destroy();
+        
         return res.status(200).json({message: "You have successfully signed out!"});
     } catch (error) {
         console.log(error);
@@ -99,29 +106,17 @@ router.post('/sign-out', async(req,res) => {
 
 
 // SIGN UP route for new user
+// TODO: add jwt functionality for this route
 router.post('/sign-up', async (req, res) => {
     try {
         const newUser = await User.create(req.body)
-
-        req.session.save(() => {
-            req.session.userId = newUser.id;
-            req.session.username = newUser.user_name;
-            req.session.loggedIn = true;
-
-            res.status(200).json(newUser);
-        })
-
+        
+        res.status(200).json(newUser);
 
     } catch (error) {
         console.log(error);
         res.status(400).json(error);
     }
-})
-
-
-// TEMPORARY GET route for session data
-router.get('/showsessions', (req,res) => {
-    res.send(req.session);
 })
 
 module.exports = router;
