@@ -35,6 +35,20 @@ router.get('/getsingleuser/:id', async(req, res) => {
     }
 })
 
+router.get('/getuser/:username', async(req, res) => {
+    try {
+        const singleUsername = await User.findOne({
+            where: {
+                user_name: req.params.username
+            }
+        });
+        res.status(200).json(singleUsername); 
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
+})
+
 
 
 

@@ -3,6 +3,7 @@ const session = require("express-session");
 const controllers = require("./controllers");
 const sequelize = require("./config/configuration");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const cors = require('cors');
 require("dotenv").config();
 
 const app = express();
@@ -21,8 +22,8 @@ const sess = {
   }),
 };
 
+app.use(cors())
 app.use(session(sess));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

@@ -6,7 +6,7 @@ router.post('/', async (req, res) => {
     console.log("create new conversation");
     console.log(req.body);
     try {
-        const newConversation = await Conversations.create({
+        const newConversation = await Conversation.create({
            senderId: req.body.senderId,
            recieverId: req.body.recieverId
         })
@@ -35,5 +35,5 @@ router.get('/:userId', async ( req, res) => {
         console.log(err);
         res.status(500).json(err);
     }
-} )
+})
 module.exports = router;
