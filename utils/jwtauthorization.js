@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
+// middleware just verifies and checks the token
 module.exports = function (req,res,next){
     const token = req.headers?.authorization?.split(" ").pop();
     if(!token){

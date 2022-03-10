@@ -11,7 +11,7 @@ const {User, Pet, Post, Comment, Conversation, Message} = require("../../models"
 router.get('/getallusers', async(req, res) => {
     try {
         const allUsers = await User.findAll({
-            include: [Pet, Post, Comment]
+            include: [Pet, Post, Comment] 
         })
 
         res.status(200).json(allUsers);
@@ -32,6 +32,20 @@ router.get('/getsingleuser/:id', async(req, res) => {
 
         res.status(200).json(singleUser);
         
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
+})
+
+router.get('/getuser/:username', async(req, res) => {
+    try {
+        const singleUsername = await User.findOne({
+            where: {
+                user_name: req.params.username
+            }
+        });
+        res.status(200).json(singleUsername); 
     } catch (error) {
         console.log(error);
         res.status(400).json(error);
@@ -96,6 +110,8 @@ router.post('/sign-in', async(req, res) => {
         res.status(400).json(error);
     }
 })
+
+// create a route to get the token information
 
 
 // SIGN OUT route for user

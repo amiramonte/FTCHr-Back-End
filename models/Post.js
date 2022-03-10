@@ -15,6 +15,7 @@ Post.init({
     },
     post_location: {
         type: DataTypes.INTEGER,
+        defaultValue: null
     },  
 },{
     sequelize,

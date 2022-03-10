@@ -122,12 +122,34 @@ const comments = [
   },
 ];
 
+const conversations = [
+  {
+    senderId: "truont2",
+    recieverId: "amiramonte",
+  }
+]
+
+const messages = [
+  {
+    conversationId: 1,
+    sender: "amiramonte", 
+    text: "hello takara"
+  }, 
+  {
+    conversationId: 1,
+    sender: "truont2", 
+    text: "hello alex"
+  }
+]
+
 const seed = async () => {
   await sequelize.sync({ force: true });
   await User.bulkCreate(users, { individualHooks: true });
   await Pet.bulkCreate(pets);
   await Post.bulkCreate(posts);
   await Comment.bulkCreate(comments);
+  await Conversation.bulkCreate(conversations);
+  await Message.bulkCreate(messages);
   console.log("Seeding Successful!");
   process.exit(0);
 };

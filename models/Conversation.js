@@ -1,12 +1,21 @@
-const { Model } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/configuration');
 
-class Conversation extends Model {}
+class Conversations extends Model {}
 
-Conversation.init({
-
-},{
+Conversations.init(
+    {
+        // will contain conversation and member ids
+        senderId: {
+            type: DataTypes.STRING,
+        }, 
+        recieverId: {
+            type: DataTypes.STRING
+        }
+    },
+    {
     sequelize,
-});
+    }
+);
 
-module.exports = Conversation;
+module.exports = Conversations;
