@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const tokenAuth = require("../../utils/jwtauthorization");
 const {User, Pet, Post, Comment, Conversation, Message} = require("../../models");
 
 
@@ -38,9 +39,17 @@ router.get('/getsinglepet/:id', async(req, res) => {
 
 
 // Add pet route
-router.post('/addpet', async (req, res) => {
+router.post('/addpet', tokenAuth, async (req, res) => {
     try {
-        const newPet = await Pet.create(req.body)
+        const newPet = await Pet.create({
+            pet_name:req.body.pet_name,
+            pet_species:req.body.pet_species,
+            pet_age:req.body.pet_age,
+            pet_personality:req.body.pet_personality,
+            pet_size:req.body.pet_size,
+            pet_breed:req.body.pet_breed,
+            UserId:req.user
+        })
 
         res.status(200).json(newPet);
 
