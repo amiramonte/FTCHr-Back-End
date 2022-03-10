@@ -11,7 +11,7 @@ const {User, Pet, Post, Comment, Conversation, Message} = require("../../models"
 router.get('/getallusers', async(req, res) => {
     try {
         const allUsers = await User.findAll({
-            include: [Pet, Post, Comment]
+            include: [Pet, Post, Comment] 
         })
 
         res.status(200).json(allUsers);
