@@ -4,9 +4,11 @@ const sequelize = require("./config/configuration");
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
 require("dotenv").config();
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+app.use(cors());
 
 app.use(cors())
 app.use(express.json());
