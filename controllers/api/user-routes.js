@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const tokenAuth = require("../../utils/jwtauthorization");
 const {User, Pet, Post, Comment, Conversation, Message} = require("../../models");
 
 
@@ -79,10 +80,8 @@ router.post('/sign-in', async(req, res) => {
 
 
 // SIGN OUT route for user
-// TODO: SET UP SIGN OUT TO REMOVE TOKEN INFORMATION
 router.post('/sign-out', async(req,res) => {
     try {
-        
         return res.status(200).json({message: "You have successfully signed out!"});
     } catch (error) {
         console.log(error);
@@ -92,17 +91,28 @@ router.post('/sign-out', async(req,res) => {
 
 
 // SIGN UP route for new user
-// TODO: add jwt functionality for this route
 router.post('/sign-up', async (req, res) => {
     try {
         const newUser = await User.create(req.body)
+
+        const userToken = jwt.sign(
+            {
+                id: newUser.id,
+                user_name: newUser.user_name,
+            },
+            process.env.JWT_SECRET,
+            {
+                expiresIn: "2h"
+            })
+
         
-        res.status(200).json(newUser);
+        res.status(200).json(newUser, userToken);
 
     } catch (error) {
         console.log(error);
         res.status(400).json(error);
     }
 })
+
 
 module.exports = router;
