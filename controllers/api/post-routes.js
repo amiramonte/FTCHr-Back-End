@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const tokenAuth = require("../../utils/jwtauthorization");
 const {User, Pet, Post, Comment, Conversation, Message} = require("../../models");
 
 
@@ -37,9 +38,13 @@ router.get('/getsinglepost/:id', async(req, res) => {
 
 
 // Add new Post route
-router.post('/addpost', async (req, res) => {
+router.post('/addpost', tokenAuth, async (req, res) => {
     try {
-        const newPost = await Post.create(req.body)
+        const newPost = await Post.create({
+            post_title: req.body.post_title,
+            post_content: req.body.post_content,
+            UserId: req.user
+        })
 
         res.status(200).json(newPost);
 

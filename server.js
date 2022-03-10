@@ -1,7 +1,6 @@
 const express = require("express");
 const controllers = require("./controllers");
 const sequelize = require("./config/configuration");
-const jwt = require('jsonwebtoken');
 require("dotenv").config();
 
 const app = express();
