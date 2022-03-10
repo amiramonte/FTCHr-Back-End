@@ -92,6 +92,8 @@ router.post('/sign-in', async(req, res) => {
     }
 })
 
+// create a route to get the token information
+
 
 // SIGN OUT route for user
 router.post('/sign-out', async(req,res) => {
