@@ -39,6 +39,25 @@ router.get('/getsingleuser/:id', async(req, res) => {
 })
 
 
+// GET route for logged in user information
+router.get("/verifieduser", tokenAuth, async (req,res)=>{
+    try {
+        const loggedInUser = await User.findOne({
+            where:{
+                id:req.user
+            },
+            include:[Pet, Post, Comment]
+        })
+        res.json(loggedInUser);
+
+    } catch(err){
+        console.log(err);
+        res.status(500).json({err})
+    }
+})
+
+
+
 
 
 
@@ -69,7 +88,7 @@ router.post('/sign-in', async(req, res) => {
                 expiresIn: "2h"
             })
 
-        return res.status(200).json({ currentUser, userToken, message: "you are now logged in!" });
+        return res.status(200).json({ message: "you are now logged in!" });
 
 
     } catch (error) {
