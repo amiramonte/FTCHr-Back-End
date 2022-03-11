@@ -24,7 +24,7 @@ const users = [
   {
     user_name: "truont2",
     user_email: "truont2@gmail.com",
-    user_password: "password2",
+    user_password: "password",
   },
   {
     user_name: "andrewtranmsw",

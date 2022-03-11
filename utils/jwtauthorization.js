@@ -12,6 +12,7 @@ module.exports = function (req,res,next){
             return res.status(403).json({msg:"invalid token!"})
         }
         req.user=data.id
+        console.log(req.user, "plzzzzzzzzzzzzz")
         next()
     })
 }

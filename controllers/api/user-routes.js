@@ -56,12 +56,14 @@ router.get('/getuser/:username', async(req, res) => {
 // GET route for logged in user information
 router.get("/verifieduser", tokenAuth, async (req,res)=>{
     try {
+        console.log(req.user, "req.user")
         const loggedInUser = await User.findOne({
             where:{
                 id:req.user
             },
             include:[Pet, Post, Comment]
         })
+        console.log(loggedInUser, "logged in user data")
         res.json(loggedInUser);
 
     } catch(err){
@@ -79,7 +81,7 @@ router.get("/verifieduser", tokenAuth, async (req,res)=>{
 router.post('/sign-in', async(req, res) => {
     try {
         const currentUser = await User.findOne({
-            where: { user_name: req.body.user_name },
+            where: { user_email: req.body.user_email },
         })
 
         if (!currentUser) {
@@ -102,7 +104,8 @@ router.post('/sign-in', async(req, res) => {
                 expiresIn: "2h"
             })
 
-        return res.status(200).json({ message: "you are now logged in!" });
+        console.log(userToken);
+        return res.json({userToken, user: currentUser})
 
 
     } catch (error) {
