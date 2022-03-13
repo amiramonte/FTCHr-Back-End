@@ -42,7 +42,7 @@ const pets = [
     pet_personality: "High Energy",
     pet_size: 45,
     pet_breed: "Mini Australian Shepard",
-    UserId: 1,
+    UserId: 2,
   },
   {
     pet_name: "Gus",
@@ -60,7 +60,7 @@ const pets = [
     pet_personality: "Potato",
     pet_size: 30,
     pet_breed: "Corgi",
-    UserId: 3,
+    UserId: 2,
   },
   {
     pet_name: "Bubbles",
@@ -69,7 +69,7 @@ const pets = [
     pet_personality: "Shy and timid",
     pet_size: 2,
     pet_breed: "Goldfish",
-    UserId: 4,
+    UserId: 2,
   },
 ];
 
@@ -126,21 +126,21 @@ const conversations = [
   {
     senderId: "truont2",
     recieverId: "amiramonte",
-  }
-]
+  },
+];
 
 const messages = [
   {
     conversationId: 1,
-    sender: "amiramonte", 
-    text: "hello takara"
-  }, 
+    sender: "amiramonte",
+    text: "hello takara",
+  },
   {
     conversationId: 1,
-    sender: "truont2", 
-    text: "hello alex"
-  }
-]
+    sender: "truont2",
+    text: "hello alex",
+  },
+];
 
 const seed = async () => {
   await sequelize.sync({ force: true });
