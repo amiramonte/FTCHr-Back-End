@@ -15,6 +15,7 @@ router.get("/getallposts", async (req, res) => {
   try {
     const allPosts = await Post.findAll({
       include: [User, { model: Comment, include: [User] }],
+      order: [["id", "DESC"]],
     });
     console.log(allPosts, "This is whatever");
     res.status(200).json(allPosts);
@@ -45,6 +46,7 @@ router.post("/addpost", tokenAuth, async (req, res) => {
       post_title: req.body.post_title,
       post_content: req.body.post_content,
       UserId: req.user,
+      post_photo: req.body.post_photo,
     });
 
     res.status(200).json(newPost);
