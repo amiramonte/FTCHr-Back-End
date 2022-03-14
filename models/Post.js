@@ -21,6 +21,14 @@ Post.init(
       type: DataTypes.INTEGER,
       defaultValue: null,
     },
+    post_latitude: {
+      type: DataTypes.FLOAT,
+      defaultValue: null,
+    },
+    post_longitude: {
+      type: DataTypes.FLOAT,
+      defaultValue: null,
+    },
   },
   {
     sequelize,

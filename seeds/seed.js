@@ -79,23 +79,31 @@ const posts = [
     post_title: "Playdate with Odesza",
     post_content: "I will be at Discovery Park with Odesza until 3pm!",
     UserId: 1,
+    post_latitude: 47.606,
+    post_longitude: -122.329,
   },
   {
     post_title: "Playdate with Bubbles, my pet fish!",
     post_content: "Bubbles is my pet fish! He loves playing with dogs.",
     UserId: 4,
+    post_latitude: 47.606,
+    post_longitude: -122.229,
   },
   {
     post_title: "Playdate with River the pet dog!",
     post_content:
       "River is pretty excellent. She doesn't say much...or do much. But she is pretty excellent.",
     UserId: 3,
+    post_latitude: 47.606,
+    post_longitude: -122.129,
   },
   {
     post_title: "Gonna be walking Gus, my pet dog",
     post_content:
       "I'll be walking around the park with Gus, my pet dog this afternoon.",
     UserId: 2,
+    post_latitude: 47.606,
+    post_longitude: -122.029,
   },
 ];
 
