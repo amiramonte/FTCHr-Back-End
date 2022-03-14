@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS ftchr_db;
+CREATE DATABASE ftchr_db;
