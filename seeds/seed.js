@@ -87,7 +87,7 @@ const posts = [
     post_content: "Bubbles is my pet fish! He loves playing with dogs.",
     UserId: 4,
     post_latitude: 47.606,
-    post_longitude: -122.229,
+    post_longitude: -122.109,
   },
   {
     post_title: "Playdate with River the pet dog!",
@@ -103,7 +103,7 @@ const posts = [
       "I'll be walking around the park with Gus, my pet dog this afternoon.",
     UserId: 2,
     post_latitude: 47.606,
-    post_longitude: -122.029,
+    post_longitude: -122.139,
   },
 ];
 
