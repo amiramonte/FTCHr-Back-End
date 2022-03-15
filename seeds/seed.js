@@ -81,6 +81,8 @@ const posts = [
     UserId: 1,
     post_latitude: 47.606,
     post_longitude: -122.329,
+    post_photo:
+      "https://res.cloudinary.com/ftchr/image/upload/v1646776817/ftchr/wkxaiqoiglatzz5rwuuy.jpg",
   },
   {
     post_title: "Playdate with Bubbles, my pet fish!",
@@ -88,6 +90,8 @@ const posts = [
     UserId: 4,
     post_latitude: 47.606,
     post_longitude: -122.109,
+    post_photo:
+      "https://res.cloudinary.com/ftchr/image/upload/v1646778525/ftchr/fgekdcgxgagckukjjngn.jpg",
   },
   {
     post_title: "Playdate with River the pet dog!",
@@ -96,6 +100,8 @@ const posts = [
     UserId: 3,
     post_latitude: 47.606,
     post_longitude: -122.129,
+    post_photo:
+      "https://res.cloudinary.com/ftchr/image/upload/v1646778431/ftchr/pcfodmos183dkshjavdf.png",
   },
   {
     post_title: "Gonna be walking Gus, my pet dog",
@@ -104,6 +110,8 @@ const posts = [
     UserId: 2,
     post_latitude: 47.606,
     post_longitude: -122.139,
+    post_photo:
+      "https://res.cloudinary.com/ftchr/image/upload/v1647215613/ftchr/xhqojrkaw6thg30in5ok.jpg",
   },
 ];
 
