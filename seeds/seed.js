@@ -81,6 +81,8 @@ const posts = [
     UserId: 1,
     post_latitude: 47.606,
     post_longitude: -122.329,
+    post_photo:
+      "https://upload.wikimedia.org/wikipedia/commons/3/36/Mini_Aussie.jpg",
   },
   {
     post_title: "Playdate with Bubbles, my pet fish!",
@@ -88,6 +90,8 @@ const posts = [
     UserId: 4,
     post_latitude: 47.606,
     post_longitude: -122.109,
+    post_photo:
+      "https://upload.wikimedia.org/wikipedia/commons/4/4c/Sumbawa29_4-1-12_-_10_super_cute_blenny_%286695842701%29.jpg",
   },
   {
     post_title: "Playdate with River the pet dog!",
@@ -96,6 +100,8 @@ const posts = [
     UserId: 3,
     post_latitude: 47.606,
     post_longitude: -122.129,
+    post_photo:
+      "https://upload.wikimedia.org/wikipedia/commons/1/15/My_favorite_corgi_Meimei.jpg",
   },
   {
     post_title: "Gonna be walking Gus, my pet dog",
@@ -104,6 +110,8 @@ const posts = [
     UserId: 2,
     post_latitude: 47.606,
     post_longitude: -122.139,
+    post_photo:
+      "https://upload.wikimedia.org/wikipedia/commons/e/e2/Pitbull_terrier_americano.JPG",
   },
 ];
 

@@ -51,6 +51,23 @@ router.post('/addcomment', async (req, res) => {
 })
 
 
+router.get('/getpostcomments/:PostId', async(req, res) => {
+    try {
+        const postComments = await Comment.findAll({
+            where: {
+                PostId: req.params.PostId
+            },
+            include: [User, Post]
+        })
+
+        res.status(200).json(postComments);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
+})
+
 
 
 // Update single comment route
