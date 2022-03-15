@@ -47,6 +47,8 @@ router.post("/addpost", tokenAuth, async (req, res) => {
       post_content: req.body.post_content,
       UserId: req.user,
       post_photo: req.body.post_photo,
+      post_latitude: req.body.post_latitude,
+      post_longitude: req.body.post_longitude,
     });
 
     res.status(200).json(newPost);
