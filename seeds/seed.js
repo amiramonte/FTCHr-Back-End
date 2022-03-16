@@ -15,21 +15,29 @@ const users = [
     user_name: "amiramonte",
     user_email: "alex.r.miramontes@gmail.com",
     user_password: "password",
+    user_photo:
+      "https://res.cloudinary.com/ftchr/image/upload/v1647396704/ftchr/beautiful_surf_pic_yduvkv.webp",
   },
   {
     user_name: "acanthodoris",
     user_email: "rebeccah.May@gmail.com",
-    user_password: "password1",
+    user_password: "password",
+    user_photo:
+      "https://res.cloudinary.com/ftchr/image/upload/v1647397005/ftchr/20210814_1907342_g1kcx4.jpg",
   },
   {
     user_name: "truont2",
     user_email: "truont2@gmail.com",
     user_password: "password",
+    user_photo:
+      "https://res.cloudinary.com/ftchr/image/upload/v1647396493/ftchr/Image_from_iOS_znlskf.jpg",
   },
   {
     user_name: "andrewtranmsw",
     user_email: "andrewtranmsw@gmail.com",
-    user_password: "password3",
+    user_password: "password",
+    user_photo:
+      "https://res.cloudinary.com/ftchr/image/upload/v1647396575/ftchr/IMG_1811_mcqxm8.jpg",
   },
 ];
 
@@ -42,7 +50,9 @@ const pets = [
     pet_personality: "High Energy",
     pet_size: 45,
     pet_breed: "Mini Australian Shepard",
-    UserId: 2,
+    UserId: 1,
+    pet_photo:
+      "https://upload.wikimedia.org/wikipedia/commons/3/36/Mini_Aussie.jpg",
   },
   {
     pet_name: "Gus",
@@ -52,6 +62,8 @@ const pets = [
     pet_size: 75,
     pet_breed: "American Pitbull Terrier",
     UserId: 2,
+    pet_photo:
+      "https://upload.wikimedia.org/wikipedia/commons/e/e2/Pitbull_terrier_americano.JPG",
   },
   {
     pet_name: "River",
@@ -60,7 +72,9 @@ const pets = [
     pet_personality: "Potato",
     pet_size: 30,
     pet_breed: "Corgi",
-    UserId: 2,
+    UserId: 3,
+    pet_photo:
+      "https://upload.wikimedia.org/wikipedia/commons/1/15/My_favorite_corgi_Meimei.jpg",
   },
   {
     pet_name: "Bubbles",
@@ -69,7 +83,9 @@ const pets = [
     pet_personality: "Shy and timid",
     pet_size: 2,
     pet_breed: "Goldfish",
-    UserId: 2,
+    UserId: 4,
+    pet_photo:
+      "https://upload.wikimedia.org/wikipedia/commons/4/4c/Sumbawa29_4-1-12_-_10_super_cute_blenny_%286695842701%29.jpg",
   },
 ];
 
