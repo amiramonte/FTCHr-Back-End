@@ -105,7 +105,7 @@ router.post('/sign-in', async(req, res) => {
             })
 
         console.log(userToken);
-        return res.json({userToken, user: currentUser})
+        return res.status(200).json({userToken, user: currentUser})
 
 
     } catch (error) {
@@ -144,11 +144,11 @@ router.post('/sign-up', async (req, res) => {
             })
 
         
-        res.status(200).json(newUser, userToken);
+        res.status(200).json({newUser: newUser, userToken: userToken});
 
     } catch (error) {
         console.log(error);
-        res.status(400).json(error);
+        res.status(500).json(error);
     }
 })
 
